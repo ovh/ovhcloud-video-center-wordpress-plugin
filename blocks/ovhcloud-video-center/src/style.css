@@ -1,0 +1,29 @@
+/**
+ * OVHcloud Video Center – Gutenberg Block Front-end Styles
+ *
+ * These styles apply both in the editor and on the front-end.
+ */
+
+.wp-block-ovhcloud-video-center-video .ovh-vc-responsive-embed {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background: #000;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.wp-block-ovhcloud-video-center-video .ovh-vc-responsive-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.wp-block-ovhcloud-video-center-video .ovh-vc-video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}

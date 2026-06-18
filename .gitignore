@@ -1,0 +1,17 @@
+# Build artifacts (regenerated from source via npm run build)
+blocks/ovhcloud-video-center/build/
+blocks/ovhcloud-video-center/node_modules/
+
+# Distribution zip
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Node
+node_modules/

@@ -1,0 +1,66 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: blocks/ovhcloud-video-center/package-lock.json
+
+      - name: Install dependencies
+        run: cd blocks/ovhcloud-video-center && npm ci
+
+      - name: Build block
+        run: cd blocks/ovhcloud-video-center && npm run build
+
+      - name: Create distribution zip
+        run: |
+          PLUGIN_NAME="ovhcloud-video-center"
+          VERSION="${GITHUB_REF_NAME#v}"
+          ZIP_FILE="${PLUGIN_NAME}-${VERSION}.zip"
+
+          mkdir -p dist/${PLUGIN_NAME}
+          rsync -a \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='.gitignore' \
+            --exclude='node_modules' \
+            --exclude='blocks/ovhcloud-video-center/node_modules' \
+            --exclude='blocks/ovhcloud-video-center/src' \
+            --exclude='blocks/ovhcloud-video-center/package-lock.json' \
+            --exclude='dist' \
+            --exclude='.DS_Store' \
+            --exclude='Makefile' \
+            --exclude='phpunit.xml' \
+            --exclude='tests' \
+            . dist/${PLUGIN_NAME}/
+
+          cd dist && zip -r ${ZIP_FILE} ${PLUGIN_NAME}/
+          echo "ZIP_FILE=dist/${ZIP_FILE}" >> $GITHUB_ENV
+          echo "ZIP_NAME=${ZIP_FILE}" >> $GITHUB_ENV
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.ZIP_FILE }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

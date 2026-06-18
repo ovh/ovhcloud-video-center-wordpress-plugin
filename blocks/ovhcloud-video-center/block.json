@@ -1,0 +1,75 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "ovhcloud-video-center/video",
+    "version": "0.0.1",
+    "title": "OVHcloud Video Center",
+    "category": "embed",
+    "icon": "video-alt3",
+    "description": "Embed a single video or a video gallery from OVHcloud Video Center.",
+    "keywords": [ "video", "ovhcloud", "embed", "vod" ],
+    "textdomain": "ovhcloud-video-center",
+    "supports": {
+        "html": false,
+        "align": [ "wide", "full" ]
+    },
+    "attributes": {
+        "mode": {
+            "type": "string",
+            "default": "single",
+            "enum": [ "single", "list" ]
+        },
+        "vodId": {
+            "type": "string",
+            "default": ""
+        },
+        "tags": {
+            "type": "string",
+            "default": ""
+        },
+        "size": {
+            "type": "string",
+            "default": "100%"
+        },
+        "orientation": {
+            "type": "string",
+            "default": "horizontal",
+            "enum": [ "horizontal", "vertical" ]
+        },
+        "columns": {
+            "type": "string",
+            "default": "4"
+        },
+        "rows": {
+            "type": "string",
+            "default": "2"
+        },
+        "showTitle": {
+            "type": "boolean",
+            "default": false
+        },
+        "loop": {
+            "type": "boolean",
+            "default": false
+        },
+        "autoplay": {
+            "type": "boolean",
+            "default": false
+        },
+        "hideTitle": {
+            "type": "boolean",
+            "default": false
+        },
+        "hideControls": {
+            "type": "boolean",
+            "default": false
+        },
+        "mute": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "editorScript": "file:./build/index.js",
+    "editorStyle": "file:./build/index.css",
+    "style": "file:./build/style-index.css"
+}

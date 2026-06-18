@@ -1,0 +1,265 @@
+/**
+ * OVHcloud Video Center – Gutenberg Block Editor Styles
+ */
+
+.wp-block-ovhcloud-video-center-video {
+    border: 1px dashed #c3c4c7;
+    border-radius: 4px;
+    padding: 0;
+    min-height: 100px;
+}
+
+.wp-block-ovhcloud-video-center-video .components-placeholder {
+    min-height: 200px;
+}
+
+/* ---------------------------------------------------------------
+ * Video Picker
+ * --------------------------------------------------------------- */
+.ovh-vc-video-picker {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.ovh-vc-video-picker .components-search-control {
+    margin-bottom: 12px;
+}
+
+.ovh-vc-picker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.ovh-vc-picker-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    padding: 0;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.ovh-vc-picker-item:hover {
+    border-color: #2271b1;
+}
+
+.ovh-vc-picker-item.is-selected {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+}
+
+.ovh-vc-picker-thumb {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background: #f0f0f1;
+    overflow: hidden;
+}
+
+.ovh-vc-picker-thumb img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ovh-vc-picker-thumb .dashicons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+    color: #c3c4c7;
+}
+
+.ovh-vc-picker-check {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: #2271b1;
+    color: #fff;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.ovh-vc-picker-title {
+    display: block;
+    width: 100%;
+    padding: 6px 8px;
+    font-size: 11px;
+    line-height: 1.3;
+    text-align: center;
+    color: #1d2327;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ovh-vc-picker-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.ovh-vc-picker-page-info {
+    font-size: 13px;
+    color: #666;
+}
+
+.ovh-vc-picker-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 30px;
+    color: #666;
+}
+
+.ovh-vc-picker-error,
+.ovh-vc-picker-empty {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 20px;
+}
+
+.ovh-vc-picker-change {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+}
+
+/* ---------------------------------------------------------------
+ * Orientation Picker
+ * --------------------------------------------------------------- */
+.ovh-vc-orientation-picker {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 10px 0 6px;
+}
+
+.ovh-vc-orientation-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 24px 32px;
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+    min-width: 140px;
+}
+
+.ovh-vc-orientation-card:hover {
+    border-color: #2271b1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.ovh-vc-orientation-card:active {
+    transform: translateY(0);
+}
+
+.ovh-vc-orientation-icon {
+    color: #2271b1;
+}
+
+.ovh-vc-orientation-horizontal svg {
+    width: 80px;
+    height: 50px;
+}
+
+.ovh-vc-orientation-vertical svg {
+    width: 40px;
+    height: 64px;
+}
+
+.ovh-vc-orientation-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.ovh-vc-orientation-ratio {
+    font-size: 12px;
+    color: #757575;
+    background: #f0f0f1;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+
+/* ---------------------------------------------------------------
+ * ServerSideRender preview in the editor
+ * Constrain the video grid so it doesn't look oversized.
+ * --------------------------------------------------------------- */
+.wp-block-ovhcloud-video-center-video .ovh-vc-video-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.wp-block-ovhcloud-video-center-video .ovh-vc-video-card {
+    font-size: 12px;
+}
+
+.wp-block-ovhcloud-video-center-video .ovh-vc-video-title {
+    font-size: 11px;
+    margin: 0;
+}
+
+.wp-block-ovhcloud-video-center-video .ovh-vc-video-info {
+    padding: 6px 8px;
+}
+
+.wp-block-ovhcloud-video-center-video .ovh-vc-video-tags {
+    display: none;
+}
+
+.wp-block-ovhcloud-video-center-video .ovh-vc-play-icon {
+    display: none;
+}
+
+/* Hide the modal container inside the editor – it's not usable there */
+.wp-block-ovhcloud-video-center-video .ovh-vc-front-modal {
+    display: none !important;
+}
+
+/* Single video iframe preview – constrain height */
+.wp-block-ovhcloud-video-center-video .ovh-vc-single-video {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.wp-block-ovhcloud-video-center-video .ovh-vc-responsive-embed {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* Tag pills – smaller in editor */
+.wp-block-ovhcloud-video-center-video .ovh-vc-tag {
+    font-size: 10px;
+    padding: 1px 6px;
+}

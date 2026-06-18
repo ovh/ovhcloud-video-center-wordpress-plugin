@@ -1,0 +1,264 @@
+/**
+ * OVHcloud Video Center – Front-end Styles
+ *
+ * Styles for shortcode output and modal player.
+ *
+ * @package OVH_VideoCenter
+ * @since   0.0.1
+ */
+
+/* ---------------------------------------------------------------
+ * Video gallery (shortcode [ovhcloud_vc_gallery])
+ * --------------------------------------------------------------- */
+.ovh-vc-video-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.ovh-vc-gallery-item {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.ovh-vc-gallery-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.ovh-vc-gallery-title {
+    padding: 8px 10px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ovh-vc-video-thumb {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 */
+    background: #f0f0f0;
+    overflow: hidden;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    appearance: none;
+}
+
+.ovh-vc-video-thumb img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.ovh-vc-video-thumb:hover img {
+    transform: scale(1.05);
+}
+
+.ovh-vc-video-thumb.ovh-vc-no-poster {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ovh-vc-video-thumb.ovh-vc-no-poster .dashicons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    color: #ccc;
+}
+
+.ovh-vc-play-icon,
+.ovh-vc-play-overlay {
+    display: none;
+}
+
+.ovh-vc-video-info {
+    padding: 12px 14px;
+}
+
+.ovh-vc-video-title {
+    margin: 0 0 6px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #333;
+}
+
+.ovh-vc-video-tags {
+    margin-top: 6px;
+}
+
+.ovh-vc-tag {
+    display: inline-block;
+    background: #e8f4fd;
+    color: #0073aa;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin: 2px 4px 2px 0;
+}
+
+/* ---------------------------------------------------------------
+ * Embed wrapper (inline player in [ovhcloud_vc_gallery])
+ * --------------------------------------------------------------- */
+.ovh-vc-embed-wrapper {
+    position: relative;
+    width: 100%;
+    background: #000;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.ovh-vc-embed-wrapper iframe {
+    border: 0;
+}
+
+.ovh-vc-embed-wrapper.ovh-vc-responsive-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ---------------------------------------------------------------
+ * Single video (shortcode [ovhcloud_vc_video])
+ * --------------------------------------------------------------- */
+.ovh-vc-single-video {
+    margin: 20px auto;
+}
+
+/* ---------------------------------------------------------------
+ * Responsive embed (16:9)
+ * --------------------------------------------------------------- */
+.ovh-vc-responsive-embed {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background: #000;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.ovh-vc-responsive-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* ---------------------------------------------------------------
+ * Front-end modal
+ * --------------------------------------------------------------- */
+.ovh-vc-front-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ovh-vc-front-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.ovh-vc-front-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.ovh-vc-front-player {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 */
+    background: #000;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.ovh-vc-front-player iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.ovh-vc-front-modal-close {
+    position: absolute;
+    top: -36px;
+    right: 0;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 32px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    z-index: 2;
+}
+
+.ovh-vc-front-modal-close:hover {
+    color: #ff6b6b;
+}
+
+/* ---------------------------------------------------------------
+ * No videos
+ * --------------------------------------------------------------- */
+.ovh-vc-no-videos,
+.ovh-vc-error {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+    font-style: italic;
+}
+
+/* ---------------------------------------------------------------
+ * Responsive
+ * --------------------------------------------------------------- */
+@media screen and (max-width: 600px) {
+    .ovh-vc-video-gallery {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px;
+    }
+
+    .ovh-vc-front-modal-content {
+        width: 96%;
+    }
+}
