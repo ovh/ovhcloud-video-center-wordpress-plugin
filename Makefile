@@ -42,7 +42,7 @@ zip: build
 	@rm -f $(BUILD_DIR)/$(ZIP_FILE)
 	@rm -rf $(BUILD_DIR)/$(PLUGIN_NAME)
 	@mkdir -p $(BUILD_DIR)/$(PLUGIN_NAME)
-	@rsync -a --exclude='.git' --exclude='.gitignore' --exclude='node_modules' \
+	@rsync -a --exclude='.git' --exclude='.github' --exclude='.gitignore' --exclude='node_modules' \
 		--exclude='$(BLOCK_DIR)/node_modules' --exclude='$(BLOCK_DIR)/src' \
 		--exclude='$(BLOCK_DIR)/package-lock.json' --exclude='dist' \
 		--exclude='.DS_Store' --exclude='Makefile' --exclude='phpunit.xml' \
